@@ -50,8 +50,17 @@ def cv_view(request):
             }
         ],
         'skills': [
-            'Python', 'Django', 'PySpark', 'SQL', 'JavaScript', 'HTML', 'CSS',
-            'Databricks', 'Snowflake', 'AWS', 'Azure', 'GCP', 'DevOps'
+            {'name': 'Python', 'level': '95'},
+            {'name': 'Django', 'level': '80'},
+            {'name': 'SQL', 'level': '95'},
+            {'name': 'JavaScript', 'level': '75'},
+            {'name': 'AWS', 'level': '75'},
+            {'name': 'Azure', 'level': '70'},
+            {'name': 'GCP', 'level': '50'},
+            {'name': 'PySpark', 'level': '60'},
+            {'name': 'SQL', 'level': '80'},
+            {'name': 'Databricks', 'level': '70'},
+            {'name': 'Snowflake', 'level': '80'}
         ],
         'certifications': [
             'AWS Solutions Architect',
