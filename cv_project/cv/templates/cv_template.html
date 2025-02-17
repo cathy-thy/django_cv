@@ -5,32 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ cv.name }} - CV</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; background-color: #f4f4f4; color: #333333}
-        .section {
-            background: #ffffff;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 6px;
-            box-shadow: 0px 2px 4px #0000001a;
-        }
-        h1, h2 { color: #333; }
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 10px; }
-        a {
-            text-decoration: underline;
-            color: #0073e6;
-            
+        /* Define Theme Colors */
+        :root {
+            --main-theme: #5906be;
+            --background-light: #f4f4f4;
+            --text-dark: #333;
         }
 
-        
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            background: var(--main-theme);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .header p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+
+        /* Sections */
+        .section {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--main-theme);
+            border-bottom: 2px solid var(--main-theme);
+            padding-bottom: 5px;
+        }
+
+        /* Bullet Points for All Lists */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            list-style-type: disc;
+        }
+
+        /* Links */
+        a {
+            text-decoration: none;
+            color: var(--main-theme);
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Header Section -->
     <div class="header">
         <h1>{{ cv.name }}</h1>
-        <p><a href="{{ cv.linkedin }}" target="_blank">LinkedIn</a> | <a href="{{ cv.github }}" target="_blank">GitHub</a></p>
+        
     </div>
+    <p><a href="{{ cv.linkedin }}" target="_blank">LinkedIn</a> | <a href="{{ cv.github }}" target="_blank">GitHub</a></p>
 
+    <!-- Education Section -->
     <div class="section">
         <h2>Education</h2>
         {% for edu in cv.education %}
@@ -44,10 +101,12 @@
             {% endif %}
         {% endfor %}
     </div>
+
+    <!-- Work Experience Section -->
     <div class="section">
         <h2>Work Experience</h2>
         {% for job in cv.experience %}
-            <p><strong>{{ job.role }}</strong> at {{ job.company }} ({{ job.dates }})</p>
+            <p><strong>{{ job.role }}</strong> at <em>{{ job.company }}</em> ({{ job.dates }})</p>
             <ul>
                 {% for resp in job.responsibilities %}
                     <li>{{ resp }}</li>
@@ -55,7 +114,8 @@
             </ul>
         {% endfor %}
     </div>
-    
+
+    <!-- Skills Section -->
     <div class="section">
         <h2>Skills</h2>
         <ul>
@@ -64,7 +124,8 @@
             {% endfor %}
         </ul>
     </div>
-    
+
+    <!-- Certifications Section -->
     <div class="section">
         <h2>Certifications</h2>
         <ul>
@@ -73,13 +134,14 @@
             {% endfor %}
         </ul>
     </div>
-    
-    <div class="section"> 
+
+    <!-- Projects Section -->
+    <div class="section">
         <h2>Projects</h2>
         {% for project in cv.projects %}
             <p><strong>{{ project.name }}</strong>: {{ project.description }}</p>
         {% endfor %}
     </div>
-    
+
 </body>
 </html>
