@@ -20,6 +20,7 @@ from django.shortcuts import redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path to the cv app
     path('cv/', include('cv.urls')),
     #automatically direct user to the cv page
     path('', lambda request: redirect('cv/', permanent=True)),
