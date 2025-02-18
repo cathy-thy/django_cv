@@ -2,7 +2,7 @@
 Steps to run the project
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/django-cv.git
+git clone https://github.com/cathy-thy/django_cv.git
 cd django-cv
 ```
 
