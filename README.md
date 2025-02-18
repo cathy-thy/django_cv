@@ -13,12 +13,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 3. Apply Database Migrations
-```bash
-python manage.py migrate
-```
-
-### 4. Run the Django Server
+### 3. Run the Django Server
 ```bash
 python manage.py runserver
 ```
