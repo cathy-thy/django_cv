@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cv/', include('cv.urls')),
+    #automatically direct user to the cv page
+    path('', lambda request: redirect('cv/', permanent=True)),
 ]
