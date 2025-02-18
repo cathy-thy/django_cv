@@ -1,5 +1,5 @@
 # django_cv
-
+Steps to run the project
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/yourusername/django-cv.git
@@ -18,7 +18,7 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
-### 5. Open in Browser
+### 4. Open in Browser
 ```bash
 CV Page: http://127.0.0.1:8000/cv/
 ```
