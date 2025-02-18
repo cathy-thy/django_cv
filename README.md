@@ -22,3 +22,13 @@ python manage.py runserver
 ```bash
 CV Page: http://127.0.0.1:8000/cv/
 ```
+
+# What I Have Done
+1. Use **Django Admin Panel** to add CV details
+  ![Django Admin Panel](screenshots/admin-panel.png)
+
+2. Styled the page with **CSS + Bootstrap**
+   
+3. Displayed the **CV dynamically** on the `/cv/` page
+  ![Django CV](screenshots/cv-p1.png)
+![Django CV](screenshots/cv-p2.png)
