@@ -15,6 +15,7 @@ pip install -r requirements.txt
 
 ### 3. Run the Django Server
 ```bash
+cd cv_project
 python manage.py runserver
 ```
 
