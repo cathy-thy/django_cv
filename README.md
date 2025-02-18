@@ -3,7 +3,7 @@ Steps to run the project
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/cathy-thy/django_cv.git
-cd django-cv
+cd django_cv
 ```
 
 ### 2. Setup Virtual Environment and Install Dependencies
