@@ -4,41 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ cv.name }} - CV</title>
+    <title>{{ profile.name }} - CV</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    
 </head>
 <body>
 
     <!-- Header Section -->
     <div class="header">
-        <h1>{{ cv.name }}</h1>
+        <h1>{{ profile.name }}</h1>
         
     </div>
-    <p><a href="{{ cv.linkedin }}" target="_blank">LinkedIn</a> | <a href="{{ cv.github }}" target="_blank">GitHub</a></p>
+    <p>
+        {% if profile.linkedin %}
+            <a href="{{ profile.linkedin }}" target="_blank">LinkedIn</a>
+        {% endif %}
+        {% if profile.github %}
+            | <a href="{{ profile.github }}" target="_blank">GitHub</a>
+        {% endif %}
+    </p>
 
     <!-- Education Section -->
     <div class="section">
         <h2>Education</h2>
-        {% for edu in cv.education %}
+        {% for edu in education %}
             <p><strong>{{ edu.degree }}</strong> - {{ edu.institution }} ({{ edu.dates }})</p>
-            {% if edu.courses %}
-                <ul>
-                    {% for course in edu.courses %}
-                        <li>{{ course }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
         {% endfor %}
     </div>
 
     <!-- Work Experience Section -->
     <div class="section">
         <h2>Work Experience</h2>
-        {% for job in cv.experience %}
+        {% for job in experience %}
             <p><strong>{{ job.role }}</strong> at <em>{{ job.company }}</em> ({{ job.dates }})</p>
             <ul>
-                {% for resp in job.responsibilities %}
+                {% for resp in job.get_responsibilities %}
                     <li>{{ resp }}</li>
                 {% endfor %}
             </ul>
@@ -49,7 +48,7 @@
     <div class="section">
         <h2>Skills</h2>
         <div class="skills-container">
-            {% for skill in cv.skills %}
+            {% for skill in skills %}
                 <div class="skill-box">
                     <span class="skill-name">{{ skill.name }}</span>
                     <div class="skill-bar">
@@ -60,12 +59,13 @@
         </div>
     </div>
 
+
     <!-- Certifications Section -->
     <div class="section">
         <h2>Certifications</h2>
         <ul>
-            {% for cert in cv.certifications %}
-                <li>{{ cert }}</li>
+            {% for cert in certifications %}
+                <li>{{ cert.name }}</li>
             {% endfor %}
         </ul>
     </div>
@@ -73,10 +73,9 @@
     <!-- Projects Section -->
     <div class="section">
         <h2>Projects</h2>
-        {% for project in cv.projects %}
+        {% for project in projects %}
             <p><strong>{{ project.name }}</strong>: {{ project.description }}</p>
         {% endfor %}
     </div>
-
 </body>
 </html>
